@@ -1,0 +1,29 @@
+*{
+
+
+
+  margin:0;
+  padding: 0;
+font-family: 'IBM Plex Mono';
+}
+
+
+a{
+
+  list-style: none;
+  color: rgb(186, 226, 255);
+  text-decoration: none;
+}
+
+
+
+body{
+
+
+  background-image:   linear-gradient(rgba(255, 255, 255, 0.948), rgba(255, 255, 255, 0.964)),url("/bg.jpg");
+    background-size: cover;     
+
+  background-position: center;
+ 
+ 
+}

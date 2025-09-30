@@ -1,0 +1,109 @@
+/* basic page layout helpers */
+.page{
+  padding: 24px;
+}
+
+.container{
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.card{
+  background: rgba(77, 75, 75, 0.133);
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.btn{
+  background-color: rgb(1, 1, 24);
+  color: rgb(179, 225, 255);
+  padding: 10px 16px;
+  font-weight: bolder;
+  border-radius: 10px;
+}
+
+.btn:hover{
+  box-shadow: 0 0 12px rgba(0, 162, 255, 0.7), 0 0 24px rgba(0, 162, 255, 0.4);
+  color: rgb(210, 238, 255);
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+input, textarea{
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* utility styles */
+.align-center{ align-items: center; }
+.inline-block{ display: inline-block; }
+.auto-height{ height: auto; }
+
+.mt-8{ margin-top: 8px; }
+.mt-12{ margin-top: 12px; }
+.mb-8{ margin-bottom: 8px; }
+.mb-12{ margin-bottom: 12px; }
+.mb-16{ margin-bottom: 16px; }
+
+.img-200{ height: 200px; width: 200px; border-radius: 12px; }
+.img-120{ height: 120px; width: 120px; }
+.img-64{ height: 64px; width: 64px; }
+.img-rounded-8{ border-radius: 8px; }
+.h-45{ height: 45px; }
+
+/* tech stack layout */
+.stack-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.stack-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* theme for tech stack card */
+.stack-card{
+  background-color: #000;
+  color: rgb(186, 226, 255);
+}
+.stack-card .stack-item{
+  background: transparent;
+}
+.stack-card .stack-item span{
+  color: rgb(186, 226, 255);
+}
+
+/* responsive tweaks */
+@media (max-width: 768px){
+  .page{ padding: 16px; }
+  .container{ gap: 12px; }
+  .grid{ grid-template-columns: 1fr; }
+  .form-row{ grid-template-columns: 1fr; }
+}
+

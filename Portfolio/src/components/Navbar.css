@@ -1,0 +1,36 @@
+nav{
+
+background-color: black;
+color:white;
+font-weight: 900;
+height: 10vh;
+display: flex;
+justify-content: space-around;
+align-items: center;
+font-size: 25px;
+}
+
+
+
+nav img{
+
+    height: 10vh;
+}
+
+
+
+nav a{
+  margin: 0 8px;
+}
+
+@media (max-width: 768px){
+  nav{
+    height: auto;
+    padding: 10px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  nav img{ height: 60px; }
+  nav a{ display: inline-block; margin: 4px 6px; font-size: 18px; }
+}
+
