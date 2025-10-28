@@ -1,21 +1,6 @@
 const base = import.meta.env.VITE_API_URL || "/api";
 
-export async function apiGet(path) {
-  const res = await fetch(`${base}${path}`, { credentials: "include" });
-  if (!res.ok) throw new Error(await res.text());
-  return res.json();
-}
-
-export async function apiPost(path, body) {
-  const res = await fetch(`${base}${path}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-    credentials: "include",
-  });
-  if (!res.ok) throw new Error(await res.text());
-  return res.json();
-}
+ 
 
 let authToken = localStorage.getItem("auth_token") || null;
 
@@ -36,10 +21,11 @@ export function getAuthToken() {
 async function request(path, { method = "GET", body } = {}) {
   const headers = { "Content-Type": "application/json" };
   if (authToken) headers["Authorization"] = `Bearer ${authToken}`;
-  const res = await fetch(`/api${path}`, {
+  const res = await fetch(`${base}${path}`, {
     method,
     headers,
     body: body ? JSON.stringify(body) : undefined,
+    credentials: "include",
   });
   const isJson = (res.headers.get("content-type") || "").includes("application/json");
   const data = isJson ? await res.json() : await res.text();
