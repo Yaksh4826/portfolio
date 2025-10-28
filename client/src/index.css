@@ -1,0 +1,75 @@
+*{
+
+
+
+  margin:0;
+  padding: 0;
+font-family: "Space Grotesk", Outfit, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'IBM Plex Mono', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root{
+  --bg: #0b0c10;
+  --surface: #ffffff;
+  --surface-alt: #f6f8fa;
+  --text: #0f172a;
+  --muted: #475569;
+  --primary: #2563eb;
+  --primary-600: #1d4ed8;
+  --primary-700: #1e40af;
+  --ring: rgba(37, 99, 235, 0.35);
+  --font-body: "Space Grotesk", Outfit, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-heading: "Space Grotesk", Georgia, serif;
+  --font-accent: "Space Grotesk", system-ui;
+}
+
+:root[data-theme='dark']{
+  --surface: #0f172a;
+  --surface-alt: #0b1220;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --primary: #60a5fa;
+  --primary-600: #3b82f6;
+  --primary-700: #2563eb;
+  --ring: rgba(96, 165, 250, 0.35);
+}
+
+a{
+
+  list-style: none;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+body{
+
+
+  background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.96)), url("/bg.jpg");
+    background-size: cover;     
+
+  background-position: center;
+  color: var(--text);
+  line-height: 1.55;
+  font-family: var(--font-body);
+}
+
+:root[data-theme='dark'] body{
+  background-image: linear-gradient(rgba(6,11,20,0.85), rgba(6,11,20,0.92)), url("/bg.jpg");
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: var(--font-heading);
+}
+
+.btn{
+  font-family: var(--font-body);
+}
+
+nav a{
+  font-family: var(--font-body);
+}
