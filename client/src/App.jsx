@@ -9,6 +9,7 @@ import Services from "./pages/Services.jsx";
 import Contact from "./pages/Contact.jsx";
 import SignIn from "./pages/SignIn.jsx";
 import SignUp from "./pages/SignUp.jsx";
+import Admin from "./pages/Admin.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import { ToastProvider } from "./components/ToastProvider.jsx";
@@ -29,6 +30,7 @@ function App() {
     <Route path="/contact" element={<Contact />} />
     <Route path="/signin" element={<SignIn />} />
     <Route path="/signup" element={<SignUp />} />
+    <Route path="/admin" element={<Admin />} />
   </Routes>
   </AuthProvider>
   </ToastProvider>

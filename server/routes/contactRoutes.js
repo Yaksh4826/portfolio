@@ -7,14 +7,15 @@ import {
   deleteContact,
   deleteAllContacts,
 } from "../controllers/contactController.js";
+import { protect, authorize } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
 router.get("/", getContacts);
 router.get("/:id", getContactById);
 router.post("/", createContact);
-router.put("/:id", updateContact);
-router.delete("/:id", deleteContact);
-router.delete("/", deleteAllContacts);
+router.put("/:id", protect, authorize("admin"), updateContact);
+router.delete("/:id", protect, authorize("admin"), deleteContact);
+router.delete("/", protect, authorize("admin"), deleteAllContacts);
 
 export default router;

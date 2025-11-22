@@ -6,7 +6,7 @@ import { useAuth } from "../context/AuthContext.jsx";
 import { useTheme } from "../context/ThemeContext.jsx";
 
 export default function Navbar() {
-  const { isAuthed, signout } = useAuth();
+  const { isAuthed, isAdmin, signout } = useAuth();
   const { theme, toggle } = useTheme();
   const [open, setOpen] = useState(false);
   return (
@@ -27,6 +27,7 @@ export default function Navbar() {
         <Link to="/services">Services</Link>
         <Link to="/contact">Contact</Link>
         <button className="btn" onClick={toggle} style={{ marginLeft: 4 }}>{theme === 'light' ? 'Dark' : 'Light'} Mode</button>
+        {isAdmin && <Link to="/admin">Admin</Link>}
         {!isAuthed ? (
           <>
             <Link to="/signin">Sign In</Link>
