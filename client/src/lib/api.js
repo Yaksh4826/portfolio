@@ -12,16 +12,29 @@ if (isLocalhost) {
 
  
 
-let authToken = localStorage.getItem("auth_token") || null;
+let authToken = null;
+try {
+  if (typeof window !== "undefined" && window.localStorage) {
+    authToken = window.localStorage.getItem("auth_token") || null;
+  }
+} catch {}
 
 export function setAuthToken(token) {
   authToken = token;
-  if (token) localStorage.setItem("auth_token", token);
+  try {
+    if (token && typeof window !== "undefined" && window.localStorage) {
+      window.localStorage.setItem("auth_token", token);
+    }
+  } catch {}
 }
 
 export function clearAuthToken() {
   authToken = null;
-  localStorage.removeItem("auth_token");
+  try {
+    if (typeof window !== "undefined" && window.localStorage) {
+      window.localStorage.removeItem("auth_token");
+    }
+  } catch {}
 }
 
 export function getAuthToken() {

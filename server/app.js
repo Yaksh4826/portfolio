@@ -16,6 +16,7 @@ import User from "./models/userModel.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const CURRENT_WORKING_DIR = process.cwd();
 
 // Load environment variables (no-op on Vercel if not present)
 dotenv.config({ path: path.join(__dirname, ".env") });
@@ -44,6 +45,9 @@ ensureAdmin();
 const app = express();
 app.use(cors({ origin: process.env.CLIENT_ORIGIN || true, credentials: true }));
 app.use(express.json());
+
+// Serve built client (Vite) from dist/app
+app.use(express.static(path.join(CURRENT_WORKING_DIR, "dist/app")));
 
 // API routes
 app.use("/api/auth", authRoutes);

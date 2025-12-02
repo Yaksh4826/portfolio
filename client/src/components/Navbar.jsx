@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <nav>
       <div className="nav-header">
-        <img src={logo} alt="Mylogo" />
+        <img src={logo} alt="My Logo" />
         <button className={`hamburger ${open ? 'active' : ''}`} aria-label="Menu" aria-expanded={open} onClick={() => setOpen(!open)}>
           <span />
           <span />

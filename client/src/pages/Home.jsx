@@ -8,8 +8,9 @@ function Home() {
   const location = useLocation();
   const submission = location.state && location.state.formData ? location.state.formData : null;
   return (
-   <> <div className="section1">
-     <img src={logo} alt="" className="profileImg" />
+   <> 
+   <div className="section1">
+    <img src={logo} alt="" className="profileImg" />
     <div className="quoteBlock">
      <h1> "If you want to learn anything , just start doing that thing"  </h1>
     </div>
