@@ -16,15 +16,40 @@ import User from "./models/userModel.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const CURRENT_WORKING_DIR = process.cwd();
 
-dotenv.config();
+// Load environment variables (no-op on Vercel if not present)
+dotenv.config({ path: path.join(__dirname, ".env") });
+
+// Initialize database connection once per cold start
 connectDB();
 
+// Seed an admin if configured and not present
+async function ensureAdmin() {
+  try {
+    const adminEmail = process.env.ADMIN_EMAIL;
+    const adminPassword = process.env.ADMIN_PASSWORD;
+    if (!adminEmail || !adminPassword) return;
+    const existing = await User.findOne({ email: adminEmail });
+    if (!existing) {
+      const hashed = await bcrypt.hash(adminPassword, 10);
+      await User.create({ name: "Admin", email: adminEmail, password: hashed, role: "admin" });
+      console.log("✅ Seeded admin user");
+    }
+  } catch (e) {
+    console.error("Failed to seed admin:", e.message);
+  }
+}
+ensureAdmin();
+
 const app = express();
-app.use(cors());
+app.use(cors({ origin: process.env.CLIENT_ORIGIN || true, credentials: true }));
 app.use(express.json());
 
-// API Routes
+// Serve built client (Vite) from dist/app
+app.use(express.static(path.join(CURRENT_WORKING_DIR, "dist/app")));
+
+// API routes
 app.use("/api/auth", authRoutes);
 app.use("/api/contacts", contactRoutes);
 app.use("/api/projects", projectRoutes);
@@ -34,16 +59,10 @@ app.use("/api/services", servicesRoutes);
 app.use("/api/about", aboutRoutes);
 
 // Health route
-app.get("/api", (req, res) => {
-  res.json({ message: "API running" });
-});
-
-// Serve Frontend (React)
-app.use(express.static(path.join(__dirname, "../client/build")));
-
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+  res.send("{message : Welcome to my portfolio application}");
 });
 
 export default app;
+
 
