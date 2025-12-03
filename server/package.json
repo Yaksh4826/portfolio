@@ -6,15 +6,16 @@
   "author": "Yaksh Patel",
   "type": "module",
   "main": "server.js",
- "scripts": {
-  "start": "node index.js",
+"scripts": {
+  "start": "node server.js",
   "client-install": "cd ../client && npm install",
   "client-build": "cd ../client && npm run build",
   "build": "npm run client-build",
   "dev": "concurrently \"npm run server\" \"npm run client\"",
-  "server": "nodemon index.js",
+  "server": "nodemon server.js",
   "client": "cd ../client && npm run dev"
 }
+
 ,
   "dependencies": {
     "cors": "^2.8.5",
