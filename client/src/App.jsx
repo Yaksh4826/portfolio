@@ -22,6 +22,7 @@ function App() {
   <ToastProvider>
   <AuthProvider>
   <Navbar />
+
   <Suspense fallback={<div style={{ padding: 24 }}>Loading…</div>}>
     <Routes>
       <Route path="/" element={<Home />} />
@@ -35,11 +36,10 @@ function App() {
       <Route path="/admin" element={<Admin />} />
       
     </Routes>
-    <footer style="text-align:center; margin-top:20px;">
-  © 2025 Yaksh Patel - Portfolio Updated
-</footer>
+   
 
   </Suspense>
+  
   </AuthProvider>
   </ToastProvider>
   </ThemeProvider>
