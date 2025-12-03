@@ -33,7 +33,12 @@ function App() {
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/admin" element={<Admin />} />
+      
     </Routes>
+    <footer style="text-align:center; margin-top:20px;">
+  © 2025 Yaksh Patel - Portfolio Updated
+</footer>
+
   </Suspense>
   </AuthProvider>
   </ToastProvider>
