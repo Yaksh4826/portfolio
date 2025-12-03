@@ -18,5 +18,10 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: 'test/setupTests.js'
-  }
+  },
+    preview: {
+    host: true, // allow network access
+    port: 4173,
+    allowedHosts: ['yakshportfolio.onrender.com'], // add your Render domain here
+  },
 })
