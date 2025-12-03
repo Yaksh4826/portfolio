@@ -22,6 +22,7 @@ function App() {
   <ToastProvider>
   <AuthProvider>
   <Navbar />
+
   <Suspense fallback={<div style={{ padding: 24 }}>Loading…</div>}>
     <Routes>
       <Route path="/" element={<Home />} />
@@ -33,8 +34,12 @@ function App() {
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/admin" element={<Admin />} />
+      
     </Routes>
+   
+
   </Suspense>
+  
   </AuthProvider>
   </ToastProvider>
   </ThemeProvider>

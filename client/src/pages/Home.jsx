@@ -44,7 +44,11 @@ function Home() {
       <li>Deployed secure auth flows with JWT</li>
     </ul>
   </div>
+  <div >
+  © 2025 Yaksh Patel - Portfolio Updated
 </div>
+</div>
+ 
     </>
   );
 }
